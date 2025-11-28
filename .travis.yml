@@ -1,4 +1,9 @@
-dist: focal
-Lenguague: Java
-Script: echo
-install: skio
+language: java
+
+jdk:
+  - openjdk11
+
+install: skip
+
+script:
+  - mvn clean test
