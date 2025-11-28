@@ -21,12 +21,10 @@ public class ConsolaMenu {
         this.reservacionService = new ReservacionService(vendedorService, standService);
         this.pagoService = new PagoService();
         this.reporteService = new ReporteService();
-
         this.reporteService.configurarServicios(reservacionService, pagoService);
     }
 
     public void iniciar() {
-        // luego conectamos con CSV, por ahora solo en memoria
         authService.cargarAdmins();
         vendedorService.cargar();
         standService.cargar();
@@ -40,14 +38,21 @@ public class ConsolaMenu {
 
         boolean salir = false;
         while (!salir) {
-            System.out.println("\n=== Sistema de Stands de Bazar ===");
-            System.out.println("1) Vendedores");
-            System.out.println("2) Stands");
-            System.out.println("3) Reservaciones");
-            System.out.println("4) Pagos");
-            System.out.println("5) Reportes");
-            System.out.println("6) Salir (sin guardar por ahora)");
-            System.out.print("Opción: ");
+            limpiarPantalla();
+            mostrarBanner();
+            mostrarHub();
+
+            System.out.println();
+            System.out.println("  MENÚ PRINCIPAL");
+            System.out.println("  ──────────────");
+            System.out.println("  1) Vendedores");
+            System.out.println("  2) Stands");
+            System.out.println("  3) Reservaciones");
+            System.out.println("  4) Pagos");
+            System.out.println("  5) Reportes");
+            System.out.println("  6) Salir");
+            System.out.print("\n  Elige una opción: ");
+
             int op = leerEntero();
 
             switch (op) {
@@ -57,13 +62,55 @@ public class ConsolaMenu {
                 case 4 -> menuPagos();
                 case 5 -> menuReportes();
                 case 6 -> {
-                    System.out.println("Adiós.");
+                    System.out.println("\nGracias por usar el sistema. ¡Hasta luego!");
                     salir = true;
                 }
-                default -> System.out.println("Opción inválida.");
+                default -> {
+                    System.out.println("Opción inválida. Presiona ENTER para continuar...");
+                    scanner.nextLine();
+                }
             }
         }
     }
+
+    // ─────────────────────────────────────────────
+    //  HUB / PRESENTACIÓN
+    // ─────────────────────────────────────────────
+
+    private void mostrarBanner() {
+        System.out.println("╔══════════════════════════════════════════════╗");
+        System.out.println("║      SISTEMA DE ADMINISTRACIÓN DE STANDS     ║");
+        System.out.println("║                \"Bazar Luckys\"               ║");
+        System.out.println("╚══════════════════════════════════════════════╝");
+    }
+
+    private void mostrarHub() {
+        System.out.println();
+        System.out.println("  Resumen rápido del sistema");
+        System.out.println("  ──────────────────────────");
+        System.out.println("  - Gestión de vendedores");
+        System.out.println("  - Administración de stands");
+        System.out.println("  - Reservaciones por fecha");
+        System.out.println("  - Registro de pagos");
+        System.out.println("  - Reportes básicos de operación");
+    }
+
+    // Intenta limpiar la pantalla (no es perfecto en todas las consolas, pero ayuda)
+    private void limpiarPantalla() {
+        try {
+            if (System.getProperty("os.name").toLowerCase().contains("windows")) {
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            } else {
+                System.out.print("\033[H\033[2J");
+                System.out.flush();
+            }
+        } catch (Exception ignored) {
+        }
+    }
+
+    // ─────────────────────────────────────────────
+    //  UTILIDAD
+    // ─────────────────────────────────────────────
 
     private int leerEntero() {
         try {
@@ -73,10 +120,15 @@ public class ConsolaMenu {
         }
     }
 
+    // ─────────────────────────────────────────────
+    //  MENÚS
+    // ─────────────────────────────────────────────
+
     private void menuVendedores() {
         boolean back = false;
         while (!back) {
-            System.out.println("\n--- Vendedores ---");
+            limpiarPantalla();
+            System.out.println("=== Módulo de Vendedores ===");
             System.out.println("1) Alta");
             System.out.println("2) Listar");
             System.out.println("3) Editar");
@@ -92,13 +144,18 @@ public class ConsolaMenu {
                 case 5 -> back = true;
                 default -> System.out.println("Opción inválida.");
             }
+            if (!back) {
+                System.out.println("\nPresiona ENTER para continuar...");
+                scanner.nextLine();
+            }
         }
     }
 
     private void menuStands() {
         boolean back = false;
         while (!back) {
-            System.out.println("\n--- Stands ---");
+            limpiarPantalla();
+            System.out.println("=== Módulo de Stands ===");
             System.out.println("1) Alta");
             System.out.println("2) Listar");
             System.out.println("3) Editar");
@@ -114,13 +171,18 @@ public class ConsolaMenu {
                 case 5 -> back = true;
                 default -> System.out.println("Opción inválida.");
             }
+            if (!back) {
+                System.out.println("\nPresiona ENTER para continuar...");
+                scanner.nextLine();
+            }
         }
     }
 
     private void menuReservas() {
         boolean back = false;
         while (!back) {
-            System.out.println("\n--- Reservaciones ---");
+            limpiarPantalla();
+            System.out.println("=== Módulo de Reservaciones ===");
             System.out.println("1) Crear reservación");
             System.out.println("2) Listar reservaciones");
             System.out.println("3) Cancelar reservación");
@@ -134,13 +196,18 @@ public class ConsolaMenu {
                 case 4 -> back = true;
                 default -> System.out.println("Opción inválida.");
             }
+            if (!back) {
+                System.out.println("\nPresiona ENTER para continuar...");
+                scanner.nextLine();
+            }
         }
     }
 
     private void menuPagos() {
         boolean back = false;
         while (!back) {
-            System.out.println("\n--- Pagos ---");
+            limpiarPantalla();
+            System.out.println("=== Módulo de Pagos ===");
             System.out.println("1) Registrar pago");
             System.out.println("2) Listar pagos");
             System.out.println("3) Volver");
@@ -152,14 +219,19 @@ public class ConsolaMenu {
                 case 3 -> back = true;
                 default -> System.out.println("Opción inválida.");
             }
+            if (!back) {
+                System.out.println("\nPresiona ENTER para continuar...");
+                scanner.nextLine();
+            }
         }
     }
 
     private void menuReportes() {
         boolean back = false;
         while (!back) {
-            System.out.println("\n--- Reportes ---");
-            System.out.println("1) Reservas por vendedor");
+            limpiarPantalla();
+            System.out.println("=== Módulo de Reportes ===");
+            System.out.println("1) Reservas por vendedor (vista básica)");
             System.out.println("2) Ingresos totales");
             System.out.println("3) Volver");
             System.out.print("Opción: ");
@@ -170,6 +242,11 @@ public class ConsolaMenu {
                 case 3 -> back = true;
                 default -> System.out.println("Opción inválida.");
             }
+            if (!back) {
+                System.out.println("\nPresiona ENTER para continuar...");
+                scanner.nextLine();
+            }
         }
     }
 }
+
