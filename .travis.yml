@@ -1,9 +1,4 @@
-language: java
-
-jdk:
-  - openjdk11
-
-install: true
-
-script:
-  - mvn clean test
+dist: focal
+Lenguague: Java
+Script: echo
+install: skio
