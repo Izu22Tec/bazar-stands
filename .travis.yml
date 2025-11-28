@@ -1,9 +1,9 @@
 language: java
 
 jdk:
-  - openjdk11
+  - openjdk17
 
-install: skip
+install: true
 
 script:
   - mvn clean test
