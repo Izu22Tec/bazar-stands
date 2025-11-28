@@ -1,8 +1,4 @@
 language: java
-jdk:
-  - openjdk11
-
+jdk: openjdk11
 install: true
-
-script:
-  - mvn clean test
+script: mvn clean test
