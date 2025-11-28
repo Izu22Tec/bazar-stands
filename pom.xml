@@ -9,24 +9,29 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <!-- Usaremos Java 14, consistente con los switches "->" -->
         <maven.compiler.source>14</maven.compiler.source>
         <maven.compiler.target>14</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <junit.version>5.8.1</junit.version>
     </properties>
 
-    <!-- 🔹 Dependencias -->
     <dependencies>
-        <!-- JUnit 5 para pruebas -->
+        <!-- JUnit 5 (versión estable) -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>5.10.2</version>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
 
-    <!-- 🔹 Plugins de compilación y pruebas -->
     <build>
         <plugins>
             <!-- Compilador Java -->
@@ -40,7 +45,7 @@
                 </configuration>
             </plugin>
 
-            <!-- Plugin para ejecutar tests JUnit 5 -->
+            <!-- Ejecutar tests JUnit 5 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
