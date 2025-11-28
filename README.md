@@ -3,10 +3,6 @@
 Aplicación desarrollada como parte del Proyecto Integrador – Computación en Java (Tecmilenio).
 El sistema permite administrar vendedores, stands, reservaciones y pagos dentro de un bazar, desde una versión de consola y una interfaz gráfica (hub) desarrollada con Swing.
 
-📸 Captura de interfaz gráfica (Hub)
-
-(Inserta aquí una captura de la ventana HubWindow)
-
 🎯 Objetivo del sistema
 
 Desarrollar un sistema funcional en Java que permita:
