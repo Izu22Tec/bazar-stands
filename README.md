@@ -60,9 +60,9 @@ El proyecto aplica arquitectura en capas, pruebas unitarias, control de versione
 
 \- \[Uso](#10-uso)
 
-&nbsp; - \[Manual del Usuario Final](#manual-del-usuario-final)
+ - \[Manual del Usuario Final](#manual-del-usuario-final)
 
-&nbsp; - \[Manual del Administrador](#manual-del-administrador)
+ - \[Manual del Administrador](#manual-del-administrador)
 
 \- \[Contribución](#11-contribución)
 
@@ -173,38 +173,37 @@ Un sistema centralizado que:
 
 
 ```
+                       ┌──────────────────────────┐
 
-&nbsp;                        ┌──────────────────────────┐
+                       │     Usuario / Admin      │
 
-&nbsp;                        │     Usuario / Admin                │
+                        │     (Interfaz Consola)  │
 
-&nbsp;                        │     (Interfaz Consola)             │
+                       └──────────────┬───────────┘
 
-&nbsp;                        └──────────────┬───────────┘
+                                      │
 
-&nbsp;                                       │
+                                      ▼
 
-&nbsp;                                       ▼
+                        ┌────────────────────────────────┐
 
-&nbsp;                        ┌────────────────────────────────┐
+                     │       Aplicación Java            │
 
-&nbsp;                        │       Aplicación Java                      │
+                      └──────────────┬─────────────────┘
 
-&nbsp;                        └──────────────┬─────────────────┘
+                                      │
 
-&nbsp;                                       │
+    ┌─────────────────────┬────────────┼─────────────┬────────────────────────┐
 
-&nbsp;    ┌─────────────────────┬────────────┼─────────────┬────────────────────────┐
+   ▼                     ▼            ▼             ▼                        ▼
 
-&nbsp;    ▼                     ▼            ▼             ▼                        ▼
+┌─────────┐        ┌───────────┐   ┌────────┐   ┌──────────────┐     ┌────────────────┐
 
-&nbsp;┌─────────┐        ┌───────────┐   ┌────────┐   ┌──────────────┐     ┌────────────────┐
+│   ui       │     │  service  │   │ domain │   │ persistence  │     │ Archivos CSV   │
 
-&nbsp;│   ui       │        │  service       │   │ domain    │   │ persistence       │     │ Archivos CSV         │
+│ Consola    │     │ Servicios │   │Modelo  │   │ Repositorio  │     │   /db/\*.csv   │
 
-&nbsp;│ Consola    │        │ Servicios      │   │Modelo     │   │ Repositorio       │     │   /db/\*.csv          │
-
-&nbsp;└─────────┘        └───────────┘   └────────┘   └──────────────┘     └────────────────┘
+└─────────┘        └───────────┘   └────────┘   └──────────────┘     └────────────────┘
 
 ```
 
@@ -218,15 +217,15 @@ Un sistema centralizado que:
 
 src/
 
-&nbsp;├─ main/java/com/bazar/stands
+├─ main/java/com/bazar/stands
 
-&nbsp;│   ├─ domain/
+├─ domain/
 
-&nbsp;│   ├─ service/
+├─ service/
 
-&nbsp;│   └─ ui/
+└─ ui/
 
-&nbsp;└─ test/java/
+└─ test/java/
 
 ```
 
