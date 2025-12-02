@@ -483,6 +483,7 @@ git push origin feature/nueva-funcionalidad
 
 \### Descarga JAR
 
+https://github.com/Izu22Tec/bazar-stands/tree/master/target
 
 
 
