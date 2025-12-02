@@ -1,4 +1,4 @@
-\# Bazar Stands – Sistema de Administración de Stands  
+\# Bazar Stands – Sistema de Administración de Stands
 
 \*\*Proyecto Integrador – Computación en Java\*\*
 
@@ -12,7 +12,7 @@
 
 
 
-\*\*Bazar Stands\*\* es un sistema desarrollado en \*\*Java\*\* para administrar la operación de un bazar físico donde se alquilan stands a vendedores independientes.  
+\*\*Bazar Stands\*\* es un sistema desarrollado en \*\*Java\*\* para administrar la operación de un bazar físico donde se alquilan stands a vendedores independientes.
 
 
 
@@ -20,15 +20,15 @@ El sistema facilita:
 
 
 
-\- Registro y administración de vendedores  
+\- Registro y administración de vendedores
 
-\- Control de disponibilidad de stands  
+\- Control de disponibilidad de stands
 
-\- Creación y cancelación de reservaciones  
+\- Creación y cancelación de reservaciones
 
-\- Registro de pagos  
+\- Registro de pagos
 
-\- Reportes de ingresos y actividad por vendedor  
+\- Reportes de ingresos y actividad por vendedor
 
 
 
@@ -60,9 +60,9 @@ El proyecto aplica arquitectura en capas, pruebas unitarias, control de versione
 
 \- \[Uso](#10-uso)
 
-&nbsp; - \[Manual del Usuario Final](#manual-del-usuario-final)
+- \[Manual del Usuario Final](#manual-del-usuario-final)
 
-&nbsp; - \[Manual del Administrador](#manual-del-administrador)
+- \[Manual del Administrador](#manual-del-administrador)
 
 \- \[Contribución](#11-contribución)
 
@@ -86,15 +86,15 @@ El proyecto \*\*Bazar Stands\*\* digitaliza la gestión de un bazar mediante una
 
 
 
-\- CRUD de vendedores  
+\- CRUD de vendedores
 
-\- Administración de stands  
+\- Administración de stands
 
-\- Reservaciones con validación  
+\- Reservaciones con validación
 
-\- Control de pagos  
+\- Control de pagos
 
-\- Reportes automáticos  
+\- Reportes automáticos
 
 
 
@@ -110,13 +110,13 @@ Los bazares suelen administrar operaciones mediante:
 
 
 
-\- WhatsApp  
+\- WhatsApp
 
-\- Hojas de cálculo  
+\- Hojas de cálculo
 
-\- Mensajes dispersos  
+\- Mensajes dispersos
 
-\- Apuntes manuales  
+\- Apuntes manuales
 
 
 
@@ -124,13 +124,13 @@ Esto causa:
 
 
 
-\- Reservaciones duplicadas  
+\- Reservaciones duplicadas
 
-\- Pérdida de información  
+\- Pérdida de información
 
-\- Ingresos no registrados  
+\- Ingresos no registrados
 
-\- Falta de reportes confiables  
+\- Falta de reportes confiables
 
 
 
@@ -146,17 +146,17 @@ Un sistema centralizado que:
 
 
 
-\- Organiza la información  
+\- Organiza la información
 
-\- Valida disponibilidad  
+\- Valida disponibilidad
 
-\- Registra pagos  
+\- Registra pagos
 
-\- Genera reportes  
+\- Genera reportes
 
-\- Reduce errores humanos  
+\- Reduce errores humanos
 
-\- Permite crecimiento hacia GUI o web en futuras versiones  
+\- Permite crecimiento hacia GUI o web en futuras versiones
 
 
 
@@ -173,38 +173,37 @@ Un sistema centralizado que:
 
 
 ```
+                       ┌──────────────────────────┐
 
-&nbsp;                        ┌──────────────────────────┐
+                       │     Usuario / Admin      │
 
-&nbsp;                        │     Usuario / Admin                │
+                        │     (Interfaz Consola)  │
 
-&nbsp;                        │     (Interfaz Consola)             │
+                       └──────────────┬───────────┘
 
-&nbsp;                        └──────────────┬───────────┘
+                                      │
 
-&nbsp;                                       │
+                                      ▼
 
-&nbsp;                                       ▼
+                        ┌────────────────────────────────┐
 
-&nbsp;                        ┌────────────────────────────────┐
+                     │       Aplicación Java            │
 
-&nbsp;                        │       Aplicación Java                      │
+                      └──────────────┬─────────────────┘
 
-&nbsp;                        └──────────────┬─────────────────┘
+                                      │
 
-&nbsp;                                       │
+    ┌─────────────────────┬────────────┼─────────────┬────────────────────────┐
 
-&nbsp;    ┌─────────────────────┬────────────┼─────────────┬────────────────────────┐
+   ▼                     ▼            ▼             ▼                        ▼
 
-&nbsp;    ▼                     ▼            ▼             ▼                        ▼
+┌─────────┐        ┌───────────┐   ┌────────┐   ┌──────────────┐     ┌────────────────┐
 
-&nbsp;┌─────────┐        ┌───────────┐   ┌────────┐   ┌──────────────┐     ┌────────────────┐
+│   ui       │     │  service  │   │ domain │   │ persistence  │     │ Archivos CSV   │
 
-&nbsp;│   ui       │        │  service       │   │ domain    │   │ persistence       │     │ Archivos CSV         │
+│ Consola    │     │ Servicios │   │Modelo  │   │ Repositorio  │     │   /db/\*.csv   │
 
-&nbsp;│ Consola    │        │ Servicios      │   │Modelo     │   │ Repositorio       │     │   /db/\*.csv          │
-
-&nbsp;└─────────┘        └───────────┘   └────────┘   └──────────────┘     └────────────────┘
+└─────────┘        └───────────┘   └────────┘   └──────────────┘     └────────────────┘
 
 ```
 
@@ -218,15 +217,15 @@ Un sistema centralizado que:
 
 src/
 
-&nbsp;├─ main/java/com/bazar/stands
+├─ main/java/com/bazar/stands
 
-&nbsp;│   ├─ domain/
+├─ domain/
 
-&nbsp;│   ├─ service/
+├─ service/
 
-&nbsp;│   └─ ui/
+└─ ui/
 
-&nbsp;└─ test/java/
+└─ test/java/
 
 ```
 
@@ -256,17 +255,17 @@ src/
 
 \### Paquetes
 
-\- JUnit 5  
+\- JUnit 5
 
-\- Maven Surefire Plugin  
+\- Maven Surefire Plugin
 
 
 
 \### Infraestructura
 
-\- No requiere base de datos  
+\- No requiere base de datos
 
-\- Persistencia opcional en CSV  
+\- Persistencia opcional en CSV
 
 
 
@@ -352,11 +351,11 @@ mvn package
 
 \### Requisitos
 
-\- Java en PATH  
+\- Java en PATH
 
-\- Maven instalado  
+\- Maven instalado
 
-\- Crear carpeta `/db` si se usa CSV  
+\- Crear carpeta `/db` si se usa CSV
 
 
 
@@ -370,27 +369,27 @@ mvn package
 
 \## Manual del Usuario Final
 
-1\. Ejecutar el programa  
+1\. Ejecutar el programa
 
-2\. Seleccionar opción del menú  
+2\. Seleccionar opción del menú
 
-3\. Registrar o consultar datos  
+3\. Registrar o consultar datos
 
-4\. Generar reportes  
+4\. Generar reportes
 
 
 
 \## Manual del Administrador
 
-\- Gestión completa de vendedores  
+\- Gestión completa de vendedores
 
-\- Gestión de stands  
+\- Gestión de stands
 
-\- Control de reservas  
+\- Control de reservas
 
-\- Control de pagos  
+\- Control de pagos
 
-\- Generación de reportes  
+\- Generación de reportes
 
 
 
@@ -436,11 +435,11 @@ git push origin feature/nueva-funcionalidad
 
 
 
-4\. Crear Pull Request  
+4\. Crear Pull Request
 
-5\. Esperar revisión  
+5\. Esperar revisión
 
-6\. Merge a `develop` o `master`  
+6\. Merge a `develop` o `master`
 
 
 
@@ -452,19 +451,19 @@ git push origin feature/nueva-funcionalidad
 
 
 
-\- GUI completa Swing/JavaFX  
+\- GUI completa Swing/JavaFX
 
-\- Migración a BD real  
+\- Migración a BD real
 
-\- Roles y permisos  
+\- Roles y permisos
 
-\- Dashboard web  
+\- Dashboard web
 
-\- API REST  
+\- API REST
 
-\- Reportes PDF  
+\- Reportes PDF
 
-\- Hosting en nube  
+\- Hosting en nube
 
 
 
@@ -478,13 +477,13 @@ git push origin feature/nueva-funcionalidad
 
 \### Video demostración
 
-\*(Agregar cuando esté disponible)\*
+
 
 
 
 \### Descarga JAR
 
-\*(Agregar en GitHub Releases)\*
+
 
 
 
@@ -496,13 +495,10 @@ git push origin feature/nueva-funcionalidad
 
 
 
-\*\*Raúl Palomino – Izu22Tec\*\*  
+\*\*Raúl Palomino – Izu22Tec\*\*
 
-Proyecto Integrador – Computación en Java  
+Proyecto Integrador – Computación en Java
 
-Universidad Tecmilenio  
+Universidad Tecmilenio
 
 2025
-
-
-

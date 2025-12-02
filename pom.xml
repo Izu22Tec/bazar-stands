@@ -54,6 +54,24 @@
                     <useModulePath>false</useModulePath>
                 </configuration>
             </plugin>
+
+            <!-- 🔹 Generar JAR ejecutable con Main definido -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <!-- Incluye el classpath en el manifest -->
+                            <addClasspath>true</addClasspath>
+                            <!-- Aquí va la clase con tu método main -->
+                            <mainClass>com.bazar.stands.ui.Main</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 
