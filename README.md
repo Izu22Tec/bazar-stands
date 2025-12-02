@@ -1,170 +1,508 @@
-📦 Sistema de Administración de Stands – Bazar Luckys Market
+\# Bazar Stands – Sistema de Administración de Stands  
 
-Aplicación desarrollada como parte del Proyecto Integrador – Computación en Java (Tecmilenio).
-El sistema permite administrar vendedores, stands, reservaciones y pagos dentro de un bazar, desde una versión de consola y una interfaz gráfica (hub) desarrollada con Swing.
+\*\*Proyecto Integrador – Computación en Java\*\*
 
-🎯 Objetivo del sistema
 
-Desarrollar un sistema funcional en Java que permita:
 
-Registrar vendedores.
+---
 
-Administrar stands y su disponibilidad.
 
-Crear reservaciones validando fechas y duplicados.
 
-Registrar y consultar pagos.
+\## 1. Resumen Ejecutivo
 
-Generar reportes básicos de operación.
 
-Ofrecer una interfaz presentable para exposición académica.
 
-🧰 Funcionalidades principales
-✔ Vendedores
+\*\*Bazar Stands\*\* es un sistema desarrollado en \*\*Java\*\* para administrar la operación de un bazar físico donde se alquilan stands a vendedores independientes.  
 
-Alta, edición, eliminación y listado.
 
-Validación de datos básicos.
 
-✔ Stands
+El sistema facilita:
 
-Registro, modificación, disponibilidad (activo / inactivo).
 
-✔ Reservaciones
 
-Crear reservas por fecha.
+\- Registro y administración de vendedores  
 
-Validar disponibilidad del stand.
+\- Control de disponibilidad de stands  
 
-Cancelar reservaciones.
+\- Creación y cancelación de reservaciones  
 
-✔ Pagos
+\- Registro de pagos  
 
-Registrar pagos asociados a reservaciones.
+\- Reportes de ingresos y actividad por vendedor  
 
-Listar historiales de pagos.
 
-✔ Reportes
 
-Reservas por vendedor (básico).
+El proyecto aplica arquitectura en capas, pruebas unitarias, control de versiones, integración continua y documentación formal.
 
-Ingresos totales calculados automáticamente.
 
-🖥 Formas de ejecutar el sistema
-🔹 1. Versión de consola (Completa)
-java com.bazar.stands.ui.Main
 
+---
 
-Ofrece toda la funcionalidad completa del sistema:
-vendedores, stands, reservas, pagos y reportes.
 
-🔹 2. Interfaz gráfica (HubWindow – Presentación)
-java com.bazar.stands.ui.MainGui
 
+\# 2. Tabla de Contenidos
 
-Características:
 
-Ventana diseñada para presentación profesional.
 
-Menú visual con botones para cada módulo.
+\- \[Descripción](#3-descripción)
 
-Información del proyecto y del desarrollador.
+\- \[Problema Identificado](#4-problema-identificado)
 
-Mensajes informativos al seleccionar un módulo.
+\- \[Solución Propuesta](#5-solución-propuesta)
 
-Nota: La lógica completa del negocio está implementada en la versión de consola.
-La GUI funciona como un hub visual para exposición del proyecto.
+\- \[Arquitectura](#6-arquitectura)
 
-🏗 Arquitectura del Proyecto
-src/main/java/com/bazar/stands/
-│
-├── domain/          # Entidades del sistema (POJOs)
-│   ├── Vendedor.java
-│   ├── Stand.java
-│   ├── Reservacion.java
-│   ├── Pago.java
-│   └── AdminUser.java
-│
-├── service/         # Lógica del negocio
-│   ├── AuthService.java
-│   ├── VendedorService.java
-│   ├── StandService.java
-│   ├── ReservacionService.java
-│   ├── PagoService.java
-│   └── ReporteService.java
-│
-└── ui/              # Consola y GUI
-    ├── Main.java         # Versión de consola
-    ├── ConsolaMenu.java  # Menú de consola
-    ├── MainGui.java      # Versión gráfica
-    └── HubWindow.java    # Ventana principal (hub)
+\- \[Requerimientos](#7-requerimientos)
 
-🔧 Tecnologías utilizadas
+\- \[Instalación](#8-instalación)
 
-Java 11+
+\- \[Configuración](#9-configuración)
 
-Swing (GUI)
+\- \[Uso](#10-uso)
 
-Programación Orientada a Objetos
+&nbsp; - \[Manual del Usuario Final](#manual-del-usuario-final)
 
-IntelliJ IDEA (IDE)
+&nbsp; - \[Manual del Administrador](#manual-del-administrador)
 
-Git / GitHub (control de versiones)
+\- \[Contribución](#11-contribución)
 
-JUnit (opcional) para pruebas en CI
+\- \[Roadmap](#12-roadmap)
 
-🌿 Flujo de trabajo con Git
+\- \[Producto (Descargas y Video)](#13-producto)
 
-Se utiliza una estrategia sencilla basada en ramas:
+\- \[Autor](#autor)
 
-master       → versión estable del proyecto
-develop      → integración continua (features completadas)
-feature/*    → ramas individuales por requisito
 
 
-Ejemplos de ramas:
+---
 
-feature/01-modelo-dominio
 
-feature/02-modulo-stands
 
-feature/03-reservaciones
+\#3. Descripción
 
-Se recomienda:
 
-Crear feature branch
 
-Commit + Push
+El proyecto \*\*Bazar Stands\*\* digitaliza la gestión de un bazar mediante una aplicación de escritorio en Java, permitiendo:
 
-Pull Request hacia develop
 
-Merge después de revisión
 
-🔁 Integración Continua (Opcional)
+\- CRUD de vendedores  
 
-Este proyecto puede usarse con:
+\- Administración de stands  
 
-Travis CI
+\- Reservaciones con validación  
 
-GitHub Actions
+\- Control de pagos  
 
-Drone CI
+\- Reportes automáticos  
 
-Ejemplo básico con Travis (.travis.yml):
 
-language: java
-jdk:
-  - openjdk11
 
-script:
-  - mvn clean test
+---
 
-👨‍💻 Autor
 
-Raúl Palomino
-Universidad Tecmilenio
-Proyecto Integrador – Computación en Java
 
-📄 Licencia
+\# 4. Problema Identificado
 
-Proyecto académico – uso educativo.
+
+
+Los bazares suelen administrar operaciones mediante:
+
+
+
+\- WhatsApp  
+
+\- Hojas de cálculo  
+
+\- Mensajes dispersos  
+
+\- Apuntes manuales  
+
+
+
+Esto causa:
+
+
+
+\- Reservaciones duplicadas  
+
+\- Pérdida de información  
+
+\- Ingresos no registrados  
+
+\- Falta de reportes confiables  
+
+
+
+---
+
+
+
+\#5. Solución Propuesta
+
+
+
+Un sistema centralizado que:
+
+
+
+\- Organiza la información  
+
+\- Valida disponibilidad  
+
+\- Registra pagos  
+
+\- Genera reportes  
+
+\- Reduce errores humanos  
+
+\- Permite crecimiento hacia GUI o web en futuras versiones  
+
+
+
+---
+
+
+
+\# 6. Arquitectura
+
+
+
+\### Diagrama
+
+
+
+```
+
+&nbsp;                        ┌──────────────────────────┐
+
+&nbsp;                        │     Usuario / Admin                │
+
+&nbsp;                        │     (Interfaz Consola)             │
+
+&nbsp;                        └──────────────┬───────────┘
+
+&nbsp;                                       │
+
+&nbsp;                                       ▼
+
+&nbsp;                        ┌────────────────────────────────┐
+
+&nbsp;                        │       Aplicación Java                      │
+
+&nbsp;                        └──────────────┬─────────────────┘
+
+&nbsp;                                       │
+
+&nbsp;    ┌─────────────────────┬────────────┼─────────────┬────────────────────────┐
+
+&nbsp;    ▼                     ▼            ▼             ▼                        ▼
+
+&nbsp;┌─────────┐        ┌───────────┐   ┌────────┐   ┌──────────────┐     ┌────────────────┐
+
+&nbsp;│   ui       │        │  service       │   │ domain    │   │ persistence       │     │ Archivos CSV         │
+
+&nbsp;│ Consola    │        │ Servicios      │   │Modelo     │   │ Repositorio       │     │   /db/\*.csv          │
+
+&nbsp;└─────────┘        └───────────┘   └────────┘   └──────────────┘     └────────────────┘
+
+```
+
+
+
+\### Estructura
+
+
+
+```
+
+src/
+
+&nbsp;├─ main/java/com/bazar/stands
+
+&nbsp;│   ├─ domain/
+
+&nbsp;│   ├─ service/
+
+&nbsp;│   └─ ui/
+
+&nbsp;└─ test/java/
+
+```
+
+
+
+---
+
+
+
+\# 7. Requerimientos
+
+
+
+| Recurso | Versión |
+
+|--------|---------|
+
+| Java | 14+ |
+
+| Maven | 3.6+ |
+
+| JUnit | 5.8.1 |
+
+| CI/CD | Travis CI / GitHub Actions |
+
+
+
+\### Paquetes
+
+\- JUnit 5  
+
+\- Maven Surefire Plugin  
+
+
+
+\### Infraestructura
+
+\- No requiere base de datos  
+
+\- Persistencia opcional en CSV  
+
+
+
+---
+
+
+
+\# 8. Instalación
+
+
+
+\### 1. Clonar
+
+```sh
+
+git clone https://github.com/Izu22Tec/bazar-stands.git
+
+cd bazar-stands
+
+```
+
+
+
+\### 2. Compilar
+
+```sh
+
+mvn clean install
+
+```
+
+
+
+\### 3. Ejecutar app
+
+```sh
+
+mvn exec:java -Dexec.mainClass="com.bazar.stands.ui.Main"
+
+```
+
+
+
+\### 4. Ejecutar pruebas
+
+```sh
+
+mvn clean test
+
+```
+
+
+
+\### 5. Generar JAR
+
+```sh
+
+mvn package
+
+```
+
+
+
+---
+
+
+
+\# 9. Configuración
+
+
+
+\### Archivos
+
+```
+
+/resources/config.properties (opcional)
+
+/db/\*.csv (si se usa persistencia)
+
+```
+
+
+
+\### Requisitos
+
+\- Java en PATH  
+
+\- Maven instalado  
+
+\- Crear carpeta `/db` si se usa CSV  
+
+
+
+---
+
+
+
+\# 10. Uso
+
+
+
+\## Manual del Usuario Final
+
+1\. Ejecutar el programa  
+
+2\. Seleccionar opción del menú  
+
+3\. Registrar o consultar datos  
+
+4\. Generar reportes  
+
+
+
+\## Manual del Administrador
+
+\- Gestión completa de vendedores  
+
+\- Gestión de stands  
+
+\- Control de reservas  
+
+\- Control de pagos  
+
+\- Generación de reportes  
+
+
+
+---
+
+
+
+\# 11. Contribución
+
+
+
+\### Flujo
+
+
+
+1\. Clonar:
+
+```sh
+
+git clone https://github.com/Izu22Tec/bazar-stands.git
+
+```
+
+
+
+2\. Crear branch:
+
+```sh
+
+git checkout -b feature/nueva-funcionalidad
+
+```
+
+
+
+3\. Subir cambios:
+
+```sh
+
+git push origin feature/nueva-funcionalidad
+
+```
+
+
+
+4\. Crear Pull Request  
+
+5\. Esperar revisión  
+
+6\. Merge a `develop` o `master`  
+
+
+
+---
+
+
+
+\# 12. Roadmap
+
+
+
+\- GUI completa Swing/JavaFX  
+
+\- Migración a BD real  
+
+\- Roles y permisos  
+
+\- Dashboard web  
+
+\- API REST  
+
+\- Reportes PDF  
+
+\- Hosting en nube  
+
+
+
+---
+
+
+
+\# 13. Producto
+
+
+
+\### Video demostración
+
+\*(Agregar cuando esté disponible)\*
+
+
+
+\### Descarga JAR
+
+\*(Agregar en GitHub Releases)\*
+
+
+
+---
+
+
+
+\# Autor
+
+
+
+\*\*Raúl Palomino – Izu22Tec\*\*  
+
+Proyecto Integrador – Computación en Java  
+
+Universidad Tecmilenio  
+
+2025
+
+
+
