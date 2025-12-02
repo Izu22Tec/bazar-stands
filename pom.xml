@@ -64,18 +64,11 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <!-- OJO: aquí va tu clase con el main -->
+
                             <mainClass>com.bazar.stands.ui.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
 
         </plugins>
