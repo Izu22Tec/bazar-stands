@@ -477,13 +477,13 @@ git push origin feature/nueva-funcionalidad
 
 \### Video demostración
 
-\*(Agregar cuando esté disponible)\*
+
 
 
 
 \### Descarga JAR
 
-\*(Agregar en GitHub Releases)\*
+
 
 
 
